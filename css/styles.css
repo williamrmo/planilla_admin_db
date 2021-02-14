@@ -1,0 +1,29 @@
+body {
+    background-color: #EBF2F2;
+}
+
+h1,
+h2,
+h3 {
+    color: #095D6A;
+}
+
+.btn-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #EBF2F2;
+}
+
+footer,
+h4 {
+    color: #fff;
+    padding-bottom: 0;
+    background-color: #095D6A;
+}
+
+.foot {
+    padding: 10px;
+}

@@ -1,0 +1,116 @@
+* {
+    /*seleciona todos los elementos de la pagina , sirve para resetear ciertos esrilos */
+    margin: 0px;
+    /**/
+    padding: 0px;
+    /*reinicia la alltura de cada elemento*/
+}
+
+body {}
+
+#Container {
+    width: 100%;
+    margin: 0px auto;
+}
+
+nav {
+    padding-top: 10px;
+    /*Sube el contendor hacia arriba*/
+    width: 100%;
+    height: 85px;
+    background-color: #3C3665;
+}
+
+ul,
+ol {
+    list-style: none;
+    /*Quita los estilos prederminados(circulos,cuadros ....)*/
+}
+
+.menu {
+    margin-top: 3px;
+    /*Sube el texto del menu hacia arriba*/
+    margin-left: 400px;
+    /*Posiciona a la izquierdo cada elemento del menu*/
+}
+
+.menu>li {
+    float: left;
+    margin: 15px;
+}
+
+.menu>li a {
+    color: lightblue;
+}
+
+.menu li a:hover
+/*Aqui se cambia el color del cursor al selecionar un elemento del menu o submenu*/
+
+{
+    background-color: brown;
+}
+
+.menu li ul {
+    display: none;
+    /*Desaparece los submenus*/
+    position: absolute;
+    min-width: 140px;
+}
+
+.menu li:hover>ul
+/*Al pasar el mouse por el nombre de la lista principal , aparece el submenu */
+
+{
+    display: block;
+    /*Aparece el cuadro del submenu*/
+}
+
+#ContenidoPagina {
+    width: 100%;
+    height: 200px;
+    background-color: #3C3665;
+    padding: 10px;
+    text-align: center;
+    padding-bottom: 200px;
+}
+
+#tabla {
+    background-color: #3C3665;
+    margin-left: 500px;
+    /*Posiciona a la izquierda a la tabla */
+    margin-top: 3px;
+    /*Posiciona hacia abajo la tabla*/
+    width: 400px;
+    height: 100px;
+    color: white;
+}
+
+#ph2 {
+    padding-top: 40px;
+    margin-right: 200px;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: blue;
+    padding: 10px;
+}
+
+.articulo {
+    padding-top: 20px;
+    padding-left: 10px;
+    color: white;
+}
+
+#parrafo {
+    margin-left: 200px;
+}
+
+footer {
+    width: 100%;
+    height: 135px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+}

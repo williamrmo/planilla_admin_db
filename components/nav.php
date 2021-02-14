@@ -1,0 +1,60 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Planilla</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="./index.php">Planilla</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <?php if(isset($_SESSION['user'])): ?>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./my-perfil.php">Mi perfil</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Recursos Humanos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="./gestinar-planilla.php">Gestionar datos planilla</a></li>
+              <li><a class="dropdown-item" href="./incapacidades.php">Gestionar incapacidades</a></li>
+              <li><a class="dropdown-item" href="./gestionar-empleado.php">Gestionar informaci&oacute;n de empleado</a></li>
+              <li><a class="dropdown-item" href="./aprobar-planilla.php">Aprobar planilla</a></li>
+              <li><a class="dropdown-item" href="./registros-planilla.php">Ver registros de planilla</a></li>
+              <li><a class="dropdown-item" href="./puestos.php">Mantenimiento puesto</a></li>
+            </ul>
+          </li>
+          <?php endif; ?>
+          
+
+          <li class="nav-item">
+            <a class="nav-link" href="./contacto.php">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./acerca-de.php">Acerca de</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Iniciar sesi&oacute;n
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="./login.php">Iniciar sesi&oacute;n</a></li>
+              <li><a class="dropdown-item" href="./sign-in.php">Registrarse</a></li>
+              <li><a class="dropdown-item" href="./controllers/logout.php">Salir</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
