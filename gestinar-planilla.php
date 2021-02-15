@@ -5,68 +5,76 @@
   <div class="container">
     <h1>Gestionar datos planilla</h1>
     <br><br>
-
+    <form action="" method="get">
     <label for="user_id">
-        Identificaci&oacute;n: <input type="text" name="user_id" id="user_id">
-    </label>
-    <button>Buscar</button>
-    <br><br>
+        Identificaci&oacute;n: <br> 
+        <input type="text" name="user_id" id="user_id" required>
+        <br><br>
 
-    <!-- Informacion de la planilla -->
-    <div>
-        <table>
-            <thead>
-                <th>Fecha</th>
-                <th>Salario Neto</th>
-                <th>Incapacidad</th>
-                <th>CCSS</th>
-                <th>Banco Popular</th>
-                <th>Asosiaci&oacute;n</th>
-                <th>Salario Bruto</th>
-                <th>Estado</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-<br><br>
-    <form class=""  method="post">
-      <label for="fecha">
-        Fecha: <input type="text" name="fecha">
-      </label>
-      <br><br>
-      <label for="user_inc">
-        Dias incapacidad: <input type="number" name="user_inc">
-      </label>
-      <br><br>
-      <label for="user_aso">
-          Asosiaci&oacute;n:
-          <select class="" name="user_aso">
-            <option value="Activo_aso">Activo</option>
-            <option value="Inactivo_aso">Inactivo</option>
-          </select>
-      </label>
-      <br><br>
-      <label for="user_estado">
-          Estado:
-          <select class="" name="user_estado">
-            <option value="Activo_emp">Activo</option>
-            <option value="Inactivo_emp">Inactivo</option>
-          </select>
-      </label>
-      <br><br>
-      <button name="button">Guardar / Modificar</button>
+        <input type="submit" value="Buscar" class="bn btn-primary">
+    </label>
     </form>
+    
+    <br>
+
+    <?php
+      
+      if(isset($_GET['user_id'])){
+        include_once './DB/conexion.php';
+        $id = $_GET['user_id'];
+        $sql = "exec MostrarUsuarioTmp '$id'";
+
+      $prepare = sqlsrv_prepare($conn, $sql);
+                
+      $stm = sqlsrv_query($conn, $sql, array(), array( "Scrollable" => 'static' ));
+      if (sqlsrv_execute($prepare)) {
+
+        if(sqlsrv_num_rows($stm) != 0) {
+          $sql2 = "exec MostrarPlanillaTmpID '$id'";
+          $prepare2 = sqlsrv_prepare($conn, $sql2);
+
+          if (sqlsrv_execute($prepare2)) {
+          $pl = sqlsrv_fetch_array($prepare2);
+
+           
+          $date = date_format($pl['fecha'], 'Y-m-d');
+          echo '
+            <form class="" action="./controllers/planilla-id-controller.php" method="post">
+                <label for="id">
+                  <input type="hidden" name="id" value="',$id,'" required>
+                </label>
+                <br>
+                <label for="incapacidad">
+                  Incapacidad: <br>
+                  <input type="number" name="incapacidad" value="',number_format((float)$pl['incapacidad'], 2, '.', ''),'" required>
+                </label>
+                <br>
+                <label for="ccss">
+                  CCSS: <br>
+                  <input type="number" name="ccss" value="',number_format((float)$pl['ccss'], 2, '.', ''),'" required>
+                </label>
+                <br>
+                <label for="banco">
+                  Banco Polpular: <br>
+                  <input type="number" name="banco" value="',number_format((float)$pl['banco'], 2, '.', ''),'" required>
+                </label>
+                <br>
+                <label for="asosiacion">
+                  Asosiacion: <br>
+                  <input type="number" name="asosiacion" value="',number_format((float)$pl['asosiacion'], 2, '.', ''),'" required>
+                </label>
+                <br><br>
+                <input type="submit" value="Guardar / Modificar" class="bn btn-success">
+              </form>
+              ';
+          }
+        }
+      }
+
+      }
+      
+    ?>
+
   </div>
   
   <br><br>
