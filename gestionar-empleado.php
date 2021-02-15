@@ -16,7 +16,11 @@
         <input type="submit" value="Buscar">
     </form>
   </article>
-
+  
+  <br><br>
+  <footer class="footer">
+    <?php include_once './components/footer.php'; ?>
+  </footer>
 </body>
 
 </html>

@@ -17,7 +17,6 @@
     
   <?php
     if($_GET['id_user'] != 0){
-      var_dump($_GET['id_user']);
       $id = $_GET['id_user'];
       include_once 'DB/conexion.php';
 
@@ -52,7 +51,7 @@
             $insert = "exec ingresarIncapacidad '$f_i','$f_f',1,'$id'";
 
             $prepare2 = sqlsrv_prepare($conn, $insert);
-            var_dump($insert);
+
             if(sqlsrv_execute($prepare2)){
               echo "<script>alert('Incapacidad registrada con exito')</script>";
             }
@@ -68,6 +67,11 @@
   ?>
 
   </div>
+
+  <br><br>
+  <footer class="footer">
+    <?php include_once './components/footer.php'; ?>
+  </footer>
 </body>
 
 </html>

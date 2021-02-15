@@ -3,6 +3,7 @@
   </nav>
 
     <form class="container" action="./controllers/sign-in-val.php" method="post">
+        <h1>Registrarse</h1>
         <label for="user_id">
             Identificaci&oacute;n: <br>
             <input type="text" name="user_id" id="user_id">
@@ -35,7 +36,7 @@
         <br>
         <label for="user_direction">
             Direcci&oacute;n: <br>
-            <textarea name="user_direction" id="user_direction" cols="30" rows="4"></textarea>
+            <textarea name="user_direction" id="user_direction" cols="23" rows="4"></textarea>
         </label>
         <br>
         <label for="user_phone">
@@ -49,6 +50,11 @@
         </button>
 
     </form>
+
+    <br><br>
+  <footer class="footer">
+    <?php include_once './components/footer.php'; ?>
+  </footer>
 </body>
 
 </html>

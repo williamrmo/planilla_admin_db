@@ -7,7 +7,7 @@
             <h2>Contactenos</h2>
     
             <article class="articulo">
-                <table id="tabla">
+                <table id="tabla" class="table">
 
                     <thead>
                         <tr>
@@ -24,7 +24,6 @@
                             $prepare = sqlsrv_prepare($conn, $sql);
                             if(sqlsrv_execute($prepare)) {
                                 while ($c = sqlsrv_fetch_array($prepare)) {
-                                    var_dump($c);
                                     echo '
                                             <tr>
                                                 <td>',$c['nombre'],'</td>
@@ -40,6 +39,7 @@
                 </table>
                
             </article>
+            <br>
 
             <article class="articulo">
                 <h2 id="ph2">Como se llega?</h2>
@@ -48,6 +48,8 @@
             </article>
 
         </aside>
+
+        <br>
         
         
     </div>

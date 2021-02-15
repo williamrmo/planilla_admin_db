@@ -21,6 +21,10 @@
         </form>
     </div>
     
+    <br><br>
+  <footer class="footer">
+    <?php include_once './components/footer.php'; ?>
+  </footer>
 </body>
 
 </html>
