@@ -9,4 +9,7 @@
           die( print_r( sqlsrv_errors(), true));
      }
 
-     session_start();
+     if(!isset($_SESSION)) 
+     { 
+        session_start(); 
+     }

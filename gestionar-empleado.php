@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
   <nav>
     <?php include_once './components/nav.php'; ?>
   </nav>

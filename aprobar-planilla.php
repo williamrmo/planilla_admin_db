@@ -1,10 +1,11 @@
-  <nav>
+<?php session_start(); ?>
+ <nav>
     <?php include_once './components/nav.php'; ?>
   </nav>
 
   <div class="container">
     <h1>Aprobar planillas</h1>
-    <br><br>
+    <br>
 
     <!-- Informacion de la planilla -->
     <div>

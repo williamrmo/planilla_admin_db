@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
     <nav>
       <?php include_once './components/nav.php'; ?>
     </nav>
@@ -9,9 +9,11 @@
             <h1>My perfil</h1>
             <?php
                 require_once 'DB/conexion.php';
-                $id_us = $_SESSION['user'];
+                
+                $id_us = $_SESSION['user']['id_usuario'];
                 $sql = "SELECT * FROM Usuario WHERE id_usuario = '$id_us'";
                 $prepare = sqlsrv_prepare($conn, $sql);
+                
                 if(sqlsrv_execute($prepare)) {
                     while ($u = sqlsrv_fetch_array($prepare)) {
                         $date = date_format($u['fecha_ingreso'], 'Y-m-d');

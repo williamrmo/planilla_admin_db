@@ -1,3 +1,4 @@
+<?php session_start(); ?>
   <nav>
     <?php include_once './components/nav.php'; ?>
   </nav>
@@ -53,7 +54,7 @@
                 <h3>Editar</h3>
                 <label for="id">
                     Codigo: <br>
-                    <input type="number" name="id" id="id" value="0" require>
+                    <input type="number" name="id" id="id" value="0" require min="0">
                 </label>
                 <br>
                 <label for="nombre">
@@ -68,12 +69,12 @@
                 <br>
                 <label for="sal_min">
                     Salario M&iacute;nimo: <br>
-                    <input type="number" name="sal_min" id="sal_min">
+                    <input type="number" name="sal_min" id="sal_min" min="0">
                 </label>
                 <br>
                 <label for="sal_max">
                     Salario M&aacute;ximo: <br>
-                    <input type="number" name="sal_max" id="sal_max">
+                    <input type="number" name="sal_max" id="sal_max" min="0">
                 </label>
                 <br>
                 <label for="estudios">

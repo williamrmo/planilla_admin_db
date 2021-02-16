@@ -6,7 +6,7 @@
         $id = $_POST['user_id'];
         $pass = $_POST['user_pass'];
         
-        $sql = "SELECT * FROM Usuario WHERE id_usuario = '$id' AND password = '$pass'";
+        $sql = "exec CrearSession '$id', '$pass'";
         $prepare = sqlsrv_prepare($conn, $sql);
 
        $stm = sqlsrv_query($conn, $sql, array(), array( "Scrollable" => 'static' ));
@@ -14,7 +14,7 @@
 
             if(sqlsrv_num_rows($stm) === 1) {
                 while ($u = sqlsrv_fetch_array($prepare)) {
-                    $_SESSION['user'] = $u['id_usuario'];
+                    $_SESSION['user'] = $u;
                     var_dump($_SESSION['user']);
                 }
            }else{
@@ -25,6 +25,6 @@
             $_SESSION['error_login'] = 'Login incorrecto';
         }
     }
-    header('Location: ../index.php');
+    header('Location: ../my-perfil.php');
     
 ?>

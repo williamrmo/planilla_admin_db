@@ -1,14 +1,15 @@
+<?php session_start(); ?>
   <nav>
     <?php include_once './components/nav.php'; ?>
   </nav>
 
   <div class="container">
     <h1>Gestionar datos planilla</h1>
-    <br><br>
+    <br>
     <form action="" method="get">
-    <label for="user_id">
+    <label for="user_id_get">
         Identificaci&oacute;n: <br> 
-        <input type="text" name="user_id" id="user_id" required>
+        <input type="number" name="user_id_get" id="user_id_get" required>
         <br><br>
 
         <input type="submit" value="Buscar" class="bn btn-primary">
@@ -19,9 +20,9 @@
 
     <?php
       
-      if(isset($_GET['user_id'])){
+      if(isset($_GET['user_id_get'])){
         include_once './DB/conexion.php';
-        $id = $_GET['user_id'];
+        $id = $_GET['user_id_get'];
         $sql = "exec MostrarUsuarioTmp '$id'";
 
       $prepare = sqlsrv_prepare($conn, $sql);
@@ -34,42 +35,45 @@
           $prepare2 = sqlsrv_prepare($conn, $sql2);
 
           if (sqlsrv_execute($prepare2)) {
-          $pl = sqlsrv_fetch_array($prepare2);
+            $pl = sqlsrv_fetch_array($prepare2);
 
-           
-          $date = date_format($pl['fecha'], 'Y-m-d');
-          echo '
-            <form class="" action="./controllers/planilla-id-controller.php" method="post">
-                <label for="id">
-                  <input type="hidden" name="id" value="',$id,'" required>
-                </label>
-                <br>
-                <label for="incapacidad">
-                  Incapacidad: <br>
-                  <input type="number" name="incapacidad" value="',number_format((float)$pl['incapacidad'], 2, '.', ''),'" required>
-                </label>
-                <br>
-                <label for="ccss">
-                  CCSS: <br>
-                  <input type="number" name="ccss" value="',number_format((float)$pl['ccss'], 2, '.', ''),'" required>
-                </label>
-                <br>
-                <label for="banco">
-                  Banco Polpular: <br>
-                  <input type="number" name="banco" value="',number_format((float)$pl['banco'], 2, '.', ''),'" required>
-                </label>
-                <br>
-                <label for="asosiacion">
-                  Asosiacion: <br>
-                  <input type="number" name="asosiacion" value="',number_format((float)$pl['asosiacion'], 2, '.', ''),'" required>
-                </label>
-                <br><br>
-                <input type="submit" value="Guardar / Modificar" class="bn btn-success">
-              </form>
-              ';
+            
+            $date = date_format($pl['fecha'], 'Y-m-d');
+            echo '
+              <form class="" action="./controllers/planilla-id-controller.php" method="post">
+                  <label for="id">
+                    <input type="hidden" name="id" value="',$id,'" required>
+                  </label>
+                  <br>
+                  <label for="incapacidad">
+                    Incapacidad: <br>
+                    <input type="number" name="incapacidad" value="',number_format((float)$pl['incapacidad'], 2, '.', ''),'" required>
+                  </label>
+                  <br>
+                  <label for="ccss">
+                    CCSS: <br>
+                    <input type="number" name="ccss" value="',number_format((float)$pl['ccss'], 2, '.', ''),'" required>
+                  </label>
+                  <br>
+                  <label for="banco">
+                    Banco Polpular: <br>
+                    <input type="number" name="banco" value="',number_format((float)$pl['banco'], 2, '.', ''),'" required>
+                  </label>
+                  <br>
+                  <label for="asosiacion">
+                    Asosiacion: <br>
+                    <input type="number" name="asosiacion" value="',number_format((float)$pl['asosiacion'], 2, '.', ''),'" required>
+                  </label>
+                  <br><br>
+                  <input type="submit" value="Guardar / Modificar" class="bn btn-success">
+                </form>
+                ';
+            }
+          }
+          else {
+            echo '<script>alert("No se encontraron concidensias")</script>';
           }
         }
-      }
 
       }
       

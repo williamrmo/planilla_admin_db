@@ -1,3 +1,4 @@
+<?php session_start(); ?>
     <nav>
         <?php include_once './components/nav.php'; ?>
     </nav>
@@ -20,7 +21,9 @@
 
                         <?php
                             require_once 'DB/conexion.php';
+
                             $sql = "SELECT * FROM Contacto";
+                            
                             $prepare = sqlsrv_prepare($conn, $sql);
                             if(sqlsrv_execute($prepare)) {
                                 while ($c = sqlsrv_fetch_array($prepare)) {

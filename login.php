@@ -6,7 +6,7 @@
         <form action="./controllers/login-val.php" method="post">
             <label for="user_id">
                 Identificaci&oacute;n: <br>
-                <input type="text" name="user_id" id="user_id">
+                <input type="number" name="user_id" id="user_id">
             </label>
             <br>
             <label for="user_pass">
