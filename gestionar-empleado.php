@@ -93,8 +93,8 @@
                                 <br>
                                 <label for="user_puesto">
                                     Puesto: <br>
-                                    <select class="" name="user_puesto">',
-
+                                    <select class="" name="user_puesto">';?>
+                                        <?php
                                           $sql = "exec MostrarPuestos";
                                           $prepare = sqlsrv_prepare($conn, $sql);
                                           
@@ -108,7 +108,7 @@
                                               }
                                           }
                           
-                                      '
+                                    echo '
                                     </select>
                                 </label>
                                 <br>

@@ -60,7 +60,7 @@
             else {
               echo "<script>alert('ERROR: No se pudo registrar la incapacidad')</script>";
             }
-
+            
           }
           
         }

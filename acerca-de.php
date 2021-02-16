@@ -35,7 +35,7 @@
 
         <article class="articulo">
             <h2>Acerca los desarrolladores de este programa</h2>
-            <p>Este Programa fue desarollado por Gabriel Moya Arce y William xxx xxx para el curso de </p>
+            <p>Este Programa fue desarollado por Gabriel Moya Arce y William Romero Mu&ntilde;oz para el curso de </p>
             <p>admisntradion de base de datos del primer cuatrimeste del 2021 para la profesora Mile Mata Sojo</p>
             
         </article>
