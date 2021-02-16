@@ -6,6 +6,26 @@
     <div class="container">
       <h1>Aprobar planillas</h1>
       <br>
+      <?php
+                  require_once './DB/conexion.php';
+                  
+                  $sql = "exec MostrarPlanillaTmp";
+                  $prepare = sqlsrv_prepare($conn, $sql);
+                  
+                  $stm = sqlsrv_query($conn, $sql, array(), array( "Scrollable" => 'static' ));
+                  if (sqlsrv_execute($prepare)) {
+
+                      if(sqlsrv_num_rows($stm) == 0)  {
+                        echo '
+                          <form action="./controllers/calc-planilla-controller.php" method="post">
+                            <input type="submit" value="Calcular Planilla"class="btn btn-primary">
+                          </form>
+                          <hr>
+                        ';
+                      }
+                  }
+
+              ?>
 
       <!-- Informacion de la planilla -->
       <div>
@@ -47,21 +67,45 @@
                                     <td>',number_format((float)$pl['asosiacion'], 2, '.', ''),'</td>
                                     <td>',number_format((float)$pl['salario_bruto'], 2, '.', ''),'</td>
                                     <td>',$pl['status'],'</td>
-                                  </tr>';
-                          }
+                                  </tr>
+                                  
+                                  
+                                  
+                                  ';
+                          }// end while
+                          
+                      }
+                      echo '
+                          </tbody>
+                        </table>
+                        <br>
+                            
+                      ';
+                  }
+
+              ?>
+                
+      </div>
+      <?php
+                  require_once './DB/conexion.php';
+                  
+                  $sql = "exec MostrarPlanillaTmp";
+                  $prepare = sqlsrv_prepare($conn, $sql);
+                  
+                  $stm = sqlsrv_query($conn, $sql, array(), array( "Scrollable" => 'static' ));
+                  if (sqlsrv_execute($prepare)) {
+
+                      if(sqlsrv_num_rows($stm) != 0)  {
+                        echo '
+                        <form action="./controllers/aprobar-controller.php" method="post">
+                          <input type="submit" value="Aprobar"class="btn btn-success">
+                        </form>
+                          <br>
+                        ';
                       }
                   }
 
               ?>
-                  
-              </tbody>
-          </table>
-      </div>
-      <br>
-      <form action="./controllers/aprobar-controller.php" method="post">
-        <input type="submit" value="Aprobar"class="btn btn-success">
-      </form>
-      
     </div>
   </article>
   
