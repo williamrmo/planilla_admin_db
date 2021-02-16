@@ -3,7 +3,77 @@
       <?php include_once './components/nav.php'; ?>
     </nav>
 
+
+
+
     <article class="container">
+
+    
+    <!-- Modales-->
+        <!-- Modal de editar direccion -->
+        <div class="modal fade" id="modal-direc" tabindex="-1" role="dialog" aria-labelledby="modal-direc" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-direc">Editar Direccion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="./controllers/nueva-direc-controller.php" method="post">
+                            <label for="direc">
+                                <?php
+                                    $id =$_SESSION['user']['id_usuario'];
+                                    echo '<input type="hidden" name="id" id="id" value="',$id,'">';
+                                ?>
+                                Nueva Direccion: <br>
+                                <textarea name="direc" id="direc" cols="30" rows="5"></textarea>
+                            </label>
+                            <br><br>
+                            <input type='submit' value='Guardar / Modificar' class='btn btn-success'>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de editar telefono -->
+        <div class="modal fade" id="modal-tel" tabindex="-1" role="dialog" aria-labelledby="modal-tel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-tel">Editar Telefono</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="./controllers/nuevo-telefono-controller.php" method="post">
+                        <label for="telefono">
+                            <?php
+                                $id =$_SESSION['user']['id_usuario'];
+                                echo '<input type="hidden" name="id" id="id" value="',$id,'">';
+                            ?>
+                                Nueva Telefono: <br>
+                            <input type="number" name="telefono" id="telefono">
+                        </label>
+                        <br><br>
+                        <input type='submit' value='Guardar / Modificar' class='btn btn-success'>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Informacion del empleado -->
         <div>
             <h1>My perfil</h1>
@@ -42,7 +112,12 @@
                                 </tr>
                                 <tr>
                                     <td>Dircci&oacute;n: </td>
-                                    <td>',$u['direccion'],'</td>
+                                    <td>',$u['direccion'],'
+                                        
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-direc">
+                                            Editar
+                                        </button> 
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Asosiaci&oacute;n: </td>
@@ -50,11 +125,16 @@
                                 </tr>
                                 <tr>
                                     <td>Fecha de Ingreso: </td>
-                                    <td>', $date ,'</td>
+                                    <td>',$date ,'</td>
                                 </tr>
                                 <tr>
                                     <td>Tel&eacute;fono: </td>
-                                    <td>', $u['telefono'],'</td>
+                                    <td>', 
+                                        $u['telefono'],'
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-tel">
+                                            Editar
+                                        </button>
+                                    </td>
                                 </tr>
                             </table>
                         ';
@@ -116,10 +196,12 @@
         </div>
     </article>
 
+
     <br><br>
     <footer class="footer">
       <?php include_once './components/footer.php'; ?>
     </footer>
-</body>
+
+    
 
 </html>
