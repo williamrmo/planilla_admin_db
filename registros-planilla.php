@@ -4,6 +4,7 @@
   </nav>
 
   <div class="container">
+  <article>
     <h1>Ver registros de las planillas</h1>
     <br>
 
@@ -56,6 +57,7 @@
             </tbody>
         </table>
     </div>
+    </article>
     <br><br>
   </div>
 

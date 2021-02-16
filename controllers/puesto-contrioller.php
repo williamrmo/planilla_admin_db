@@ -63,5 +63,5 @@ if (isset($_POST)) {
         
     }
 }
-//header('Location: ../gestionar-empleado.php');
+header('Location: ../gestionar-empleado.php');
 ?>

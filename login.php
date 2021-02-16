@@ -1,6 +1,8 @@
   <nav>
     <?php include_once './components/nav.php'; ?>
   </nav>
+
+  <article>
     <div class="container">
         <h1>Iniciar sesi&oacute;n</h1>
         <form action="./controllers/login-val.php" method="post">
@@ -20,7 +22,7 @@
             </button>
         </form>
     </div>
-    
+  </article>
     <br><br>
   <footer class="footer">
     <?php include_once './components/footer.php'; ?>

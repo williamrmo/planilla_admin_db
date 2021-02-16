@@ -4,6 +4,7 @@
   </nav>
 
   <div class="container">
+  <article>
     <h1>Mantenimiento de puestos</h1>
     <br>
     <div class="row">
@@ -117,7 +118,7 @@
         </div>
     </div>
     
-    
+  </article>
   </div>
 
   <br><br>

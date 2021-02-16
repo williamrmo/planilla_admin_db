@@ -4,10 +4,9 @@
     </nav>
 
     <div class='container'>
-        <aside id="ContenidoPagina">
+
+        <article class="articulo">
             <h2>Contactenos</h2>
-    
-            <article class="articulo">
                 <table id="tabla" class="table">
 
                     <thead>
@@ -40,17 +39,17 @@
 
                     </tbody>
                 </table>
+                <div>
+                    <br>
+
+                    <h2 id="ph2">Como se llega?</h2>
+                    <p id="parrafo"> Del BARRIO EL MOLINO  de la Funeraria La Última Joya, 300 metros Sur,</p>
+                    <p id="parrafo">o bien del Colegio San Luis Gonzaga 200 metros oeste y 250 metros al sur</p>
+
+
+                </div>
                
             </article>
-            <br>
-
-            <article class="articulo">
-                <h2 id="ph2">Como se llega?</h2>
-                <p id="parrafo"> Del BARRIO EL MOLINO  de la Funeraria La Última Joya, 300 metros Sur,</p>
-                <p id="parrafo">o bien del Colegio San Luis Gonzaga 200 metros oeste y 250 metros al sur</p>
-            </article>
-
-        </aside>
 
         <br>
         

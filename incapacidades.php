@@ -4,6 +4,7 @@
   </nav>
 
   <div class="container">
+  <article>
     <h1>Gestionar incapacidades</h1>
     <br>
 
@@ -17,7 +18,7 @@
     </form>
     
   <?php
-    if($_GET['id_user'] != 0){
+    if(isset($_GET['id_user'])){
       $id = $_GET['id_user'];
       include_once 'DB/conexion.php';
 
@@ -66,7 +67,7 @@
       }
     }
   ?>
-
+  </article>
   </div>
 
   <br><br>

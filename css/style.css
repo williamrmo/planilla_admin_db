@@ -27,3 +27,7 @@ h4 {
 .foot {
     padding: 10px;
 }
+
+article {
+    min-height: 80vh;
+}
